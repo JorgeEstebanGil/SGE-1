@@ -24,6 +24,7 @@
     
     </div>
     <span/>
+    <h2>Listas grabadas:</h2>
     <table>
         <aura:iteration items="{!v.lists}" var="list">
             <tr>

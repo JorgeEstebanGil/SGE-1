@@ -58,7 +58,11 @@
     Play : function(component, event, helper) {
         var lists = component.get("v.lists");
         for (var i = 0; i < lists.length; i++) {
-            console.log("Lista " + (i + 1) + ": " + lists[i]);
+            (function(i) {
+                setTimeout(function() {
+                    console.log("Lista " + (i + 1) + ": " + lists[i]);
+                }, i * 1000);
+            })(i);
         }
     }
     
