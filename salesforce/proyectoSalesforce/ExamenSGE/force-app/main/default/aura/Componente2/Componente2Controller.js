@@ -3,7 +3,7 @@
 
     },
     addToList : function(component, event) {
-        if (event.getParam("isRecording")) {
+        if (component.get("v.isRecording")) { // changed from "isRecording" to "v.isRecording"
             var lista = component.get("v.lista");
             var item = event.getParam("number");
             lista.push(item);

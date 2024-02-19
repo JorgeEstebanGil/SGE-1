@@ -1,4 +1,5 @@
 <aura:component>
+    <aura:attribute name="isRecording" type="boolean" default="false"/>
     <aura:handler event="c:evtData" action="{!c.addToList}"/>
     <aura:attribute name="lista" type="String[]" default="[]"/>
     <table>
@@ -8,8 +9,10 @@
             </aura:iteration>
         </tr>
     </table>
-    <input type="button" name="Grabr" id="Grabar" value="Grabar" onclick="{!c.Grabar}"/> 
+    <span>{!v.isRecording}</span>
+    <input type="button" name="Grabar" id="Grabar" value="Grabar" onclick="{!c.Grabar}"/> 
     <input type="button" name="Stop" id="Stop" value="Stop" onclick="{!c.Stop}"/>
     <input type="button" name="Play" id="Play" value="Play" onclick="{!c.Play}"/>
     <input type="button" name="Guardar" id="Guardar" value="Guardar" onclick="{!c.Guardar}"/>
+    <input type="button" name="Clear" id="Clear" value="Clear" onclick="{!c.clearList}"/>
 </aura:component>	
