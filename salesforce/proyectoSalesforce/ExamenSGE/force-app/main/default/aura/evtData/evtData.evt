@@ -1,0 +1,2 @@
+<aura:event type="APPLICATION" description="Event template"/>
+<aura:attribute name="numero" type="String" default="0"> 

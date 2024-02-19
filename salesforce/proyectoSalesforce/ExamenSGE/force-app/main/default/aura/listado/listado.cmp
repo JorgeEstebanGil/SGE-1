@@ -1,0 +1,11 @@
+<aura:component>
+    <h1>Listado de números</h1>
+    <aura:attribute name="lista" type="String[]" default="[]"/>
+    <table>
+        <aura:iteration items="{!v.lista}" var="item">
+            <tr>
+                <td>{!item}</td>
+            </tr>
+        </aura:iteration>
+    </table>
+</aura:component>	
