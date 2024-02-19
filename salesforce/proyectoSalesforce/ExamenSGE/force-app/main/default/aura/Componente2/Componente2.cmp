@@ -1,5 +1,6 @@
 <aura:component controller="MyController">
     
+<aura:attribute name="lists" type="List" default="[]"/>
 <aura:attribute name="isRecording" type="boolean" default="false"/>
 <aura:attribute name="lista" type="List" default="[]"/> <!-- Cambiado de String[] a List para representar una lista de números -->
 <aura:attribute name="numberList" type="Object"/> <!-- Atributo para el objeto NumberList__c -->
@@ -21,8 +22,17 @@
     <input type="button" name="Clear" id="Clear" value="Clear" onclick="{!c.clearList}"/>
     <span/>
 
+    <table>
+        <tr>
+            <aura:iteration items="{!v.lists}" var="item">
+                <aura:iteration items="{!list}" var="item">
+                    <p>{!item}</p>
+                </aura:iteration>
+            </aura:iteration>
+        </tr>
+    </table>
+
     <aura:attribute name="savedLists" type="Object[]"/>
-    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <aura:iteration items="{!v.savedLists}" var="list">
         <p>List ID: {!list.Id}</p>
         <aura:iteration items="{!list.ListItems__r}" var="item">

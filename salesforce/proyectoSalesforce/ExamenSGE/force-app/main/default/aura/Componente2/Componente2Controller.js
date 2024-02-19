@@ -22,15 +22,23 @@
             component.set("v.lista", lista);
         }
     },
+    addList : function(component, event, helper) {
+        var newList = component.get("v.lista");
+        var lists = component.get("v.lists");
+        lists.push(newList);
+        component.set("v.lists", lists);
+    },
     clearList: function(component, event, helper) {
         component.set("v.lista", []);
     },
     Grabar : function(component, event, helper) {
-        component.set("v.Lista", [])
+        component.set("v.lista", [])
         component.set("v.isRecording", true);
     },
     Stop : function(component, event, helper) {
         component.set("v.isRecording", false);
+        var a = component.get('c.addList');
+        $A.enqueueAction(a);
     },
     Guardar : function(component, event, helper) {
         var action = component.get("c.saveList");
