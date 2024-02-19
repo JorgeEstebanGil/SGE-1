@@ -1,10 +1,10 @@
 <aura:component controller="MyController">
-    
-<aura:attribute name="lists" type="List" default="[]"/>
+
 <aura:attribute name="isRecording" type="boolean" default="false"/>
-<aura:attribute name="lista" type="List" default="[]"/> <!-- Cambiado de String[] a List para representar una lista de números -->
-<aura:attribute name="numberList" type="Object"/> <!-- Atributo para el objeto NumberList__c -->
-<aura:attribute name="listItems" type="Object[]"/> <!-- Atributo para los objetos ListItem__c -->
+<aura:attribute name="lists" type="List" default="[]"/>
+<aura:attribute name="lista" type="List" default="[]"/>
+<aura:attribute name="numberList" type="Object"/> 
+<aura:attribute name="listItems" type="Object[]"/> 
 
     <aura:handler event="c:evtData" action="{!c.addToList}"/>
     <table>
@@ -15,13 +15,15 @@
         </tr>
     </table>
     <span>{!v.isRecording}</span>
+    <div>
     <input type="button" name="Grabar" id="Grabar" value="Grabar" onclick="{!c.Grabar}"/> 
     <input type="button" name="Stop" id="Stop" value="Stop" onclick="{!c.Stop}"/>
     <input type="button" name="Play" id="Play" value="Play" onclick="{!c.Play}"/>
-    <input type="button" name="Guardar" id="Guardar" value="Guardar" onclick="{!SaveList}"/>
+    <input type="button" name="Guardar" id="Guardar" value="Guardar" onclick="{!Guardar}"/>
     <input type="button" name="Clear" id="Clear" value="Clear" onclick="{!c.clearList}"/>
+    
+    </div>
     <span/>
-
     <table>
         <aura:iteration items="{!v.lists}" var="list">
             <tr>

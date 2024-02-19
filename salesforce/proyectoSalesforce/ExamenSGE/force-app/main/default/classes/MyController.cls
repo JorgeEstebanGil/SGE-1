@@ -1,28 +1,14 @@
 public with sharing class MyController {
     @AuraEnabled
-    public List<Integer> listas { get; set; } // Este es un atributo que se puede establecer desde tu componente Aura
-
-    @AuraEnabled
-    public void saveList() { // Este método ya no toma parámetros, en su lugar usa el atributo 'listas'
-        NumberList__c newList = new NumberList__c();
-        insert newList;
-    
-        List<ListItem__c> listItems = new List<ListItem__c>();
-    
-        // Aquí estás recorriendo el atributo 'listas'
-        for(Integer number : listas) {
-            ListItem__c newItem = new ListItem__c();
-            newItem.Number__c = number;
-            newItem.NumberList__c = newList.Id;
-            listItems.add(newItem);
+    public static void saveListsToDatabase(List<List<Integer>> lists) {
+        List<NumberList__c> numberLists = new List<NumberList__c>();
+        for (List<Integer> lists : lists) {
+            NumberList__c numberList = new NumberList__c();
+            // Configurar los campos de numberList según sea necesario
+            numberLists.add(numberList);
         }
-    
-        try {
-            insert listItems;
-        } catch (DmlException e) {
-            System.debug('The following exception has occurred: ' + e.getMessage());
-        }
-    }   
+        insert numberLists;
+    }
 
     @AuraEnabled
     public static List<NumberList__c> getSavedLists() { // Este método devuelve una lista de objetos 'NumberList__c'

@@ -29,7 +29,7 @@
         component.set("v.lists", lists);
     },
     clearList: function(component, event, helper) {
-        component.set("v.lista", []);
+        component.set("v.lists", []);
     },
     Grabar : function(component, event, helper) {
         component.set("v.lista", [])
@@ -41,12 +41,18 @@
         $A.enqueueAction(a);
     },
     Guardar : function(component, event, helper) {
-        var action = component.get("c.saveList");
-        var lista = component.get("v.lista");
+        var action = component.get("c.saveListsToDatabase");
         action.setParams({
-            "numbers" : lista
+            lists: component.get("v.lists")
         });
-        component.set("v.Lista", [])
+        action.setCallback(this, function(response) {
+            var state = response.getState();
+            if (state === "SUCCESS") {
+                print("Listas guardadas correctamente");
+            } else {
+                print("Error al guardar las listas");
+            }
+        });
         $A.enqueueAction(action);
     }
     
