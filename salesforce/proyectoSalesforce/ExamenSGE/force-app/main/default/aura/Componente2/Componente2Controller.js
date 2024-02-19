@@ -14,6 +14,7 @@
         component.set("v.lista", []);
     },
     Grabar : function(component, event, helper) {
+        component.set("v.lista", []);
         component.set("v.isRecording", true);
     },
     Stop : function(component, event, helper) {
