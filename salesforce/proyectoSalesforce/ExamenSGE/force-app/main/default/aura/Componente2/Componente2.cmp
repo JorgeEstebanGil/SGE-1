@@ -34,8 +34,10 @@
             </tr>
         </aura:iteration>
     </table>
-
-
+<br/>
+<br/>
+<!--Este codigo de abajo se suponia que era para mostrar la lista guardada-->
+    <h2>Listas guardadas:</h2>
     <aura:attribute name="savedLists" type="Object[]"/>
     <aura:iteration items="{!v.savedLists}" var="list">
         <p>List ID: {!list.Id}</p>
@@ -43,4 +45,7 @@
             <p>Number: {!item.Number__c}</p>
         </aura:iteration>
     </aura:iteration>
-</aura:component>	
+
+
+
+</aura:component>

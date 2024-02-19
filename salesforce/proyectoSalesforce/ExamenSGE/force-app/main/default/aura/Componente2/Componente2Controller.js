@@ -15,7 +15,7 @@
         $A.enqueueAction(action);
     },
     addToList : function(component, event) {
-        if (component.get("v.isRecording")) { // changed from "isRecording" to "v.isRecording"
+        if (component.get("v.isRecording")) { 
             var lista = component.get("v.lista");
             var item = event.getParam("number");
             lista.push(item);
@@ -58,11 +58,7 @@
     Play : function(component, event, helper) {
         var lists = component.get("v.lists");
         for (var i = 0; i < lists.length; i++) {
-            (function(i) {
-                setTimeout(function() {
-                    console.log("Lista " + (i + 1) + ": " + lists[i]);
-                }, i * 1000);
-            })(i);
+            console.log("Lista " + (i + 1) + ": " + lists[i]);
         }
     }
     
