@@ -2,9 +2,9 @@
     myAction : function(component, event, helper) {
 
     },
-    addToList : function(component) {
+    addToList : function(component, event) {
         var lista = component.get("v.lista");
-        var item = component.getParam("number");
+        var item = event.getParam("number");
         lista.push(item);
         component.set("v.lista", lista);
     },

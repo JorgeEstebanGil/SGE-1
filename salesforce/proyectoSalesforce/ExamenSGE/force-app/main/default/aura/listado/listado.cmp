@@ -1,11 +1,13 @@
 <aura:component>
     <h1>Listado de números</h1>
+    <aura:handler event="c:evtData" action="{!c.addToList}"/>
     <aura:attribute name="lista" type="String[]" default="[]"/>
     <table>
-        <aura:iteration items="{!v.lista}" var="item">
-            <tr>
+        <tr>
+            <aura:iteration items="{!v.lista}" var="item">
                 <td>{!item}</td>
-            </tr>
-        </aura:iteration>
+            </aura:iteration>
+        </tr>
     </table>
+    <input type="button" name="delete" id="delete" onclick="{!c.clearList}" value="Limpiar" />
 </aura:component>	

@@ -1,2 +1,4 @@
-<aura:event type="APPLICATION" description="Event template"/>
-<aura:attribute name="numero" type="String" default="0"> 
+<aura:event type="APPLICATION" description="Event template">
+<aura:attribute name="number" type="integer" default="0"/> 
+<aura:attribute name="REC" type="Boolean"/>
+</aura:event>
