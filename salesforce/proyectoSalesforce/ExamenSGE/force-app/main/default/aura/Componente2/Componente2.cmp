@@ -23,6 +23,16 @@
     <span/>
 
     <table>
+        <aura:iteration items="{!v.lists}" var="list">
+            <tr>
+                <aura:iteration items="{!list}" var="item">
+                    <td>{!item}</td>
+                </aura:iteration>
+            </tr>
+        </aura:iteration>
+    </table>
+
+    <table>
         <tr>
             <aura:iteration items="{!v.lists}" var="item">
                 <aura:iteration items="{!list}" var="item">
